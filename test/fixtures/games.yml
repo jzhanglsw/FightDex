@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  developer: MyString
+  publisher: MyString
+  url: MyString
+  id: 
+
+two:
+  name: MyString
+  developer: MyString
+  publisher: MyString
+  url: MyString
+  id: 
