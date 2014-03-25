@@ -32,3 +32,4 @@ Migrating to RemoveDeveloperFromGames (20140324190347)
   [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
   [1m[35mSQL (116.7ms)[0m  INSERT INTO "games" ("created_at", "name", "publisher", "updated_at", "url") VALUES (?, ?, ?, ?, ?)  [["created_at", Mon, 24 Mar 2014 19:29:28 UTC +00:00], ["name", "Street Fighter 4 Arcade Edition"], ["publisher", "Capcom"], ["updated_at", Mon, 24 Mar 2014 19:29:28 UTC +00:00], ["url", "http://upload.wikimedia.org/wikipedia/en/0/06/Street_Fighter_IV_%28flyer%29.jpg"]]
   [1m[36m (310.8ms)[0m  [1mcommit transaction[0m
+  [1m[36mGame Load (22.0ms)[0m  [1mSELECT "games".* FROM "games"[0m

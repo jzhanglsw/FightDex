@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
     def index
-            
+        @games = Game.all    
     end
     
     def show
@@ -20,6 +20,10 @@ class GamesController < ApplicationController
     end
     
     def update
+        
+    end
+    
+    def destroy
         
     end
 end

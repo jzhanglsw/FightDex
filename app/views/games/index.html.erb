@@ -1,2 +1,5 @@
-<h1>Games</h1>
-<p>Street Fighter 4 AE</p>
+<% @games.each do |game| %>
+    <h1><%= game.name %></h1>
+    <p><%= game.publisher %></p>
+    <img src="<%= game.url %>">
+<% end %>
