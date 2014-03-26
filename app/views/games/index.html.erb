@@ -1,7 +1,6 @@
-<h1>This is a test page for FightDex</h1>
+<h1>FightDex</h1>
 <% @games.each do |game| %>
     <h2><%= game.name %></h2>
     <p><%= game.publisher %></p>
     <img src="<%= game.url %>">
 <% end %>
-<p>Content</p>

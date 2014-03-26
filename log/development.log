@@ -33,3 +33,107 @@ Migrating to RemoveDeveloperFromGames (20140324190347)
   [1m[35mSQL (116.7ms)[0m  INSERT INTO "games" ("created_at", "name", "publisher", "updated_at", "url") VALUES (?, ?, ?, ?, ?)  [["created_at", Mon, 24 Mar 2014 19:29:28 UTC +00:00], ["name", "Street Fighter 4 Arcade Edition"], ["publisher", "Capcom"], ["updated_at", Mon, 24 Mar 2014 19:29:28 UTC +00:00], ["url", "http://upload.wikimedia.org/wikipedia/en/0/06/Street_Fighter_IV_%28flyer%29.jpg"]]
   [1m[36m (310.8ms)[0m  [1mcommit transaction[0m
   [1m[36mGame Load (22.0ms)[0m  [1mSELECT "games".* FROM "games"[0m
+
+
+Started GET "/" for 127.5.6.1 at 2014-03-26 09:30:10 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/railties-4.0.0/lib/rails/templates/rails/welcome/index.html.erb (10.4ms)
+Completed 200 OK in 355ms (Views: 233.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.5.6.1 at 2014-03-26 09:30:19 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/railties-4.0.0/lib/rails/templates/rails/welcome/index.html.erb (0.1ms)
+Completed 200 OK in 15ms (Views: 14.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/games" for 127.5.6.1 at 2014-03-26 09:30:27 -0400
+Processing by GamesController#show as HTML
+  Rendered games/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 3542ms (Views: 3535.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/games.css?body=1" for 127.5.6.1 at 2014-03-26 09:30:32 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.5.6.1 at 2014-03-26 09:30:32 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.5.6.1 at 2014-03-26 09:30:32 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.5.6.1 at 2014-03-26 09:30:32 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.5.6.1 at 2014-03-26 09:30:32 -0400
+
+
+Started GET "/assets/games.js?body=1" for 127.5.6.1 at 2014-03-26 09:30:32 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.5.6.1 at 2014-03-26 09:30:32 -0400
+
+
+Started GET "/" for 127.5.6.1 at 2014-03-26 10:15:43 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/railties-4.0.0/lib/rails/templates/rails/welcome/index.html.erb (100.2ms)
+Completed 200 OK in 411ms (Views: 270.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/games" for 127.5.6.1 at 2014-03-26 10:15:59 -0400
+Processing by GamesController#show as HTML
+  [1m[35mGame Load (0.4ms)[0m  SELECT "games".* FROM "games"
+  Rendered games/show.html.erb within layouts/application (58.0ms)
+Completed 200 OK in 268ms (Views: 241.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/games.css?body=1" for 127.5.6.1 at 2014-03-26 10:16:00 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.5.6.1 at 2014-03-26 10:16:00 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.5.6.1 at 2014-03-26 10:16:00 -0400
+
+
+Started GET "/assets/games.js?body=1" for 127.5.6.1 at 2014-03-26 10:16:00 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.5.6.1 at 2014-03-26 10:16:00 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.5.6.1 at 2014-03-26 10:16:00 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.5.6.1 at 2014-03-26 10:16:00 -0400
+
+
+Started GET "/" for 127.5.6.1 at 2014-03-26 10:18:28 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (3.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GamesController#index as HTML
+  [1m[35mGame Load (7.4ms)[0m  SELECT "games".* FROM "games"
+  Rendered games/index.html.erb within layouts/application (191.8ms)
+Completed 200 OK in 636ms (Views: 408.7ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/assets/games.css?body=1" for 127.5.6.1 at 2014-03-26 10:18:36 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.5.6.1 at 2014-03-26 10:18:36 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.5.6.1 at 2014-03-26 10:18:36 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.5.6.1 at 2014-03-26 10:18:36 -0400
+
+
+Started GET "/assets/games.js?body=1" for 127.5.6.1 at 2014-03-26 10:18:36 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.5.6.1 at 2014-03-26 10:18:36 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.5.6.1 at 2014-03-26 10:18:36 -0400

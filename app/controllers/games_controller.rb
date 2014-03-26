@@ -4,7 +4,7 @@ class GamesController < ApplicationController
     end
     
     def show
-        
+        @games = Game.all  
     end
     
     def new
