@@ -1,6 +1,12 @@
-<h1>FightDex</h1>
-<% @games.each do |game| %>
-    <h2><%= game.name %></h2>
-    <p><%= game.publisher %></p>
-    <img src="<%= game.url %>">
-<% end %>
+<div data-role="page">
+    <div data-role="header">
+        <h1>FightDex</h1>
+    </div>
+    <div data-role="content">
+        <% @games.each do |game| %>
+            <h2><%= game.name %></h2>
+            <p><%= game.publisher %></p>
+            <img src="<%= game.url %>">
+        <% end %>        
+    </div>
+</div>

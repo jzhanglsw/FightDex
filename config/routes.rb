@@ -1,8 +1,8 @@
 Fightdex::Application.routes.draw do
     
-    resource :games
-    
     root to: "games#index"
+    
+    resource :games
     
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
