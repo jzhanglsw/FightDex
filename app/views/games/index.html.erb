@@ -1,4 +1,5 @@
-<div data-role="page">
+<!-- This is the home page -->
+<div data-role="page" id="homePage">
     <div data-role="header">
         <h1>FightDex</h1>
     </div>
@@ -6,11 +7,43 @@
         <% @games.each do |game| %>
             <h2><%= game.name %></h2>
             <p><%= game.publisher %></p>
-            <img src="<%= game.url %>">
+            <a href="#characterPage">
+                <img id="gameImage" src="<%= game.url %>">
+            </a>
         <% end %>        
     </div>
     <div data-role="footer">
-        <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-arrow-l ui-btn-icon-left"></a>
-        <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-arrow-r ui-btn-icon-left"></a>
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#" data-icon="arrow-l">Previous Game</a></li>
+                <li><a href="#" data-icon="arrow-r">Next Game</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- This is the character select page -->
+<div data-role="page" id="characterPage">
+    <div data-role="header">
+        <h1>FightDex</h1>
+    </div>
+    <div data-role="content">
+        <ul data-role="listview" data-filter="true" data-inset="true">
+            <li><a href="#">Apple</a></li>
+            <li><a href="#">Banana</a></li>
+            <li><a href="#">Cherry</a></li>
+            <li><a href="#">Cranberry</a></li>
+            <li><a href="#">Grape</a></li>
+            <li><a href="#">Orange</a></li>
+        </ul>    
+    </div>    
+    <div data-role="footer">
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#" data-icon="arrow-l">Back</a></li>
+                <li><a href="#" data-icon="home">Home</a></li>
+                <li><a href="#" data-icon="alert">Hadouken</a></li>
+            </ul>
+        </div>
     </div>
 </div>
