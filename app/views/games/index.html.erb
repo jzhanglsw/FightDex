@@ -28,7 +28,10 @@
         <h1>FightDex</h1>
     </div>
     <div data-role="content">
-        <ul data-role="listview" data-filter="true">
+        <form>
+          <input type="text" data-type="search" id="filterable-input">
+        </form>    
+        <ul data-role="listview" data-inset="true" data-filter="true" data-input="#filterable-input">
             <li><a href="#">Apple</a></li>
             <li><a href="#">Banana</a></li>
             <li><a href="#">Cherry</a></li>
@@ -40,8 +43,8 @@
     <div data-role="footer">
         <div data-role="navbar">
             <ul>
-                <li><a href="#" data-icon="arrow-l">Back</a></li>
-                <li><a href="#" data-icon="home">Home</a></li>
+                <li><a href="#homePage" data-icon="arrow-l">Back</a></li>
+                <li><a href="#homePage" data-icon="home">Home</a></li>
                 <li><a href="#" data-icon="alert">Hadouken</a></li>
             </ul>
         </div>
