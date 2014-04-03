@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  playstyle: MyText
+  bio: MyText
+  game: 1
+  characterId: 1
+
+two:
+  name: MyString
+  playstyle: MyText
+  bio: MyText
+  game: 1
+  characterId: 1

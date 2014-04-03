@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140324190347) do
+ActiveRecord::Schema.define(version: 20140403191743) do
+
+  create_table "characters", force: true do |t|
+    t.string   "name"
+    t.text     "playstyle"
+    t.text     "bio"
+    t.integer  "game"
+    t.integer  "characterId"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "characters", ["characterId"], name: "index_characters_on_characterId", unique: true
 
   create_table "games", force: true do |t|
     t.string   "name"

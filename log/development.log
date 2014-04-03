@@ -5626,3 +5626,85 @@ ActionController::RoutingError (No route matches [GET] "/assets/images/ajax-load
   Rendered /usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.9ms)
   Rendered /usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (143.1ms)
   Rendered /usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (332.6ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateCharacters (20140403183535)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to RemoveDeveloperFromGames (20140324190347)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (72.6ms)[0m  ALTER TABLE "games" ADD "developer" varchar(255)
+  [1m[36mSQL (10.3ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20140324190347'[0m
+  [1m[35m (34.3ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (65.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to RemoveDeveloperFromGames (20140324190347)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (4.1ms)[0m  [1mCREATE TEMPORARY TABLE "agames" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "publisher" varchar(255), "url" varchar(255), "created_at" datetime, "updated_at" datetime, "developer" varchar(255)) [0m
+  [1m[35m (0.2ms)[0m  SELECT * FROM "games"
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "agames" ("id","name","publisher","url","created_at","updated_at","developer") VALUES (1, 'Street Fighter 4 Arcade Edition', 'Capcom', 'http://upload.wikimedia.org/wikipedia/en/0/06/Street_Fighter_IV_%28flyer%29.jpg', '2014-03-24 19:29:28.665655', '2014-03-24 19:29:28.665655', NULL)[0m
+  [1m[35m (12.7ms)[0m  DROP TABLE "games"
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "games" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "publisher" varchar(255), "url" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "agames"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "games" ("id","name","publisher","url","created_at","updated_at") VALUES (1, 'Street Fighter 4 Arcade Edition', 'Capcom', 'http://upload.wikimedia.org/wikipedia/en/0/06/Street_Fighter_IV_%28flyer%29.jpg', '2014-03-24 19:29:28.665655', '2014-03-24 19:29:28.665655')[0m
+  [1m[35m (1.5ms)[0m  DROP TABLE "agames"
+  [1m[36mSQL (61.6ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140324190347"]]
+  [1m[35m (33.7ms)[0m  commit transaction
+Migrating to CreateCharacters (20140403183535)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mGame Load (3.4ms)[0m  [1mSELECT "games".* FROM "games"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateCharacters (20140403184653)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (15.7ms)[0m  [1mCREATE TABLE "characters" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "playstyle" text, "bio" text, "game" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (5.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140403184653"]]
+  [1m[36m (50.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mCharacters Load (3.4ms)[0m  [1mSELECT "characters".* FROM "characters"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateCharacters (20140403184653)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (42.6ms)[0m  DROP TABLE "characters"
+  [1m[36mSQL (48.2ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20140403184653'[0m
+  [1m[35m (86.7ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateCharacters (20140403185200)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (22.3ms)[0m  [1mCREATE TABLE "characters" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "playstyle" text, "bio" text, "game" integer, "characterId" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.8ms)[0m  CREATE UNIQUE INDEX "index_characters_on_characterId" ON "characters" ("characterId")
+  [1m[36mSQL (7.8ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140403185200"]]
+  [1m[35m (45.9ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (5.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateCharacters (20140403185200)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (28.4ms)[0m  DROP INDEX "index_characters_on_characterId"
+  [1m[36m (7.5ms)[0m  [1mDROP TABLE "characters"[0m
+  [1m[35mSQL (40.4ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20140403185200'
+  [1m[36m (75.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mCharacters Load (0.8ms)[0m  [1mSELECT "characters".* FROM "characters"[0m
+SQLite3::SQLException: no such table: characters: SELECT "characters".* FROM "characters"
+  [1m[35mCharacter Load (2.6ms)[0m  SELECT "characters".* FROM "characters"
+SQLite3::SQLException: no such table: characters: SELECT "characters".* FROM "characters"
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateCharacters (20140403191743)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (31.0ms)[0m  [1mCREATE TABLE "characters" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "playstyle" text, "bio" text, "game" integer, "characterId" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (6.4ms)[0m  CREATE UNIQUE INDEX "index_characters_on_characterId" ON "characters" ("characterId")
+  [1m[36mSQL (26.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140403191743"]]
+  [1m[35m (143.4ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (155.2ms)[0m  INSERT INTO "characters" ("bio", "created_at", "game", "id", "name", "playstyle", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["bio", "Ryu is usually a silent, humble, serious individual whose severity is often juxtaposed against the light-hearted, fiery persona of his best friend, Ken. He travels the globe with a stern nature, often appearing to others as boring or detached. On rare occasion, Ryu shows a very bad sense of humor. Cool and calculating, patience is Ryu's biggest strength. Ryu's overarching goal in Street Fighter is to become a total master of his fighting style."], ["created_at", Thu, 03 Apr 2014 19:36:28 UTC +00:00], ["game", 1], ["id", 1], ["name", "Ryu"], ["playstyle", "Ryu is a powerful zoning character, one of the best of his type. His projectiles are damaging with fast recovery while being a threat at any range. Nearly every move of Ryu has some great utility behind them especially his powerful normals. Designed from the ground up as a jack-of-all-trades character he is one of the most difficult characters to master while being the most popular. Ryu's troubles come when characters can easily shut down his fireball and low-based game. Ryu's optimal gameplan works when he can keep opponents at bay with his low attacks and ait-air properly, meaning that characters that can easily bypass or surpass his fireball and low game tend to give him some real trouble."], ["updated_at", Thu, 03 Apr 2014 19:36:28 UTC +00:00]]
+  [1m[36m (38.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mCharacter Load (0.4ms)[0m  SELECT "characters".* FROM "characters"
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (12.8ms)[0m  INSERT INTO "characters" ("bio", "created_at", "game", "name", "playstyle", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "When Ken was about 12 years old, his father, a rich hotel tycoon, thought that his son needed to learn about discipline, or his son would become a spoiled brat all of his life and try to leech onto the Masters' family fortune. In order to do so, the elder Masters sent Ken to Japan to train under his best friend, the mysterious karate master Gouken. At first, Ken was very hesitant to learn from Gouken, wanting to go back to the United States, but later began to respect his master. He even enjoyed the company of Gouken's adopted son, Ryu, since he had a foil to finally pull pranks on, although this got Ken into a lot of trouble. Ryu and Ken would later become best friends and each other's principal rivals."], ["created_at", Thu, 03 Apr 2014 19:39:59 UTC +00:00], ["game", 1], ["name", "Ken"], ["playstyle", "Ken is one of the best 'jack of all trades' characters in SF4. He has strong reversals, deadly knockdown tactics and one of the longest-ranged kara throws in the game. While characters that have lots of effective tools take a while to master, Ken is definitely worth the practice. Ken's weaknesses are his walk speed, the lack of range on his Focus Attack and his extremely poor backdash. His Ultras are either weak in combos or tough to land. These weaknesses are not very substantial, but they're enough to be a hindrance."], ["updated_at", Thu, 03 Apr 2014 19:39:59 UTC +00:00]]
+  [1m[36m (98.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mCharacter Load (0.4ms)[0m  SELECT "characters".* FROM "characters"
