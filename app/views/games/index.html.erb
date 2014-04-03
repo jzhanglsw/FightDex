@@ -4,19 +4,19 @@
         <h1>FightDex</h1>
     </div>
     <div data-role="content">
-        <% @games.each do |game| %>
+        <%= game = @games.find(@gameSelected) %>
             <h2><%= game.name %></h2>
             <p><%= game.publisher %></p>
             <a href="#characterPage">
                 <img id="gameImage" src="<%= game.url %>">
             </a>
-        <% end %>        
+        <% end %>
     </div>
     <div data-role="footer">
         <div data-role="navbar">
             <ul>
-                <li><a href="#" data-icon="arrow-l">Previous Game</a></li>
-                <li><a href="#" data-icon="arrow-r">Next Game</a></li>
+                <li><a href="#homePage" data-icon="arrow-l">Previous Game</a></li>
+                <li><a href="#homePage" data-icon="arrow-r">Next Game</a></li>
             </ul>
         </div>
     </div>

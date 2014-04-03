@@ -1,10 +1,11 @@
 class GamesController < ApplicationController
     def index
-        @games = Game.all    
+        @games = Game.all
+        @gameSelected = 1
     end
     
     def show
-        @games = Game.all  
+
     end
     
     def new

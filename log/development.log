@@ -5708,3 +5708,1128 @@ Migrating to CreateCharacters (20140403191743)
   [1m[35mSQL (12.8ms)[0m  INSERT INTO "characters" ("bio", "created_at", "game", "name", "playstyle", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "When Ken was about 12 years old, his father, a rich hotel tycoon, thought that his son needed to learn about discipline, or his son would become a spoiled brat all of his life and try to leech onto the Masters' family fortune. In order to do so, the elder Masters sent Ken to Japan to train under his best friend, the mysterious karate master Gouken. At first, Ken was very hesitant to learn from Gouken, wanting to go back to the United States, but later began to respect his master. He even enjoyed the company of Gouken's adopted son, Ryu, since he had a foil to finally pull pranks on, although this got Ken into a lot of trouble. Ryu and Ken would later become best friends and each other's principal rivals."], ["created_at", Thu, 03 Apr 2014 19:39:59 UTC +00:00], ["game", 1], ["name", "Ken"], ["playstyle", "Ken is one of the best 'jack of all trades' characters in SF4. He has strong reversals, deadly knockdown tactics and one of the longest-ranged kara throws in the game. While characters that have lots of effective tools take a while to master, Ken is definitely worth the practice. Ken's weaknesses are his walk speed, the lack of range on his Focus Attack and his extremely poor backdash. His Ultras are either weak in combos or tough to land. These weaknesses are not very substantial, but they're enough to be a hindrance."], ["updated_at", Thu, 03 Apr 2014 19:39:59 UTC +00:00]]
   [1m[36m (98.6ms)[0m  [1mcommit transaction[0m
   [1m[35mCharacter Load (0.4ms)[0m  SELECT "characters".* FROM "characters"
+
+
+Started GET "/" for 127.5.6.1 at 2014-04-03 15:59:49 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GamesController#index as HTML
+ERROR: compiling _app_views_games_index_html_erb__1654243032705441311_24247440 RAISED /var/lib/stickshift/532dc46be0b8cdb4eb00024f/app-root/data/809197/app/views/games/index.html.erb:7: syntax error, unexpected '|', expecting keyword_end
+';         |game| = @games.find(@gameSelected) 
+            ^
+/var/lib/stickshift/532dc46be0b8cdb4eb00024f/app-root/data/809197/app/views/games/index.html.erb:53: syntax error, unexpected keyword_ensure, expecting $end
+Function body:           def _app_views_games_index_html_erb__1654243032705441311_24247440(local_assigns, output_buffer)
+            _old_virtual_path, @virtual_path = @virtual_path, "games/index";_old_output_buffer = @output_buffer;;@output_buffer = output_buffer || ActionView::OutputBuffer.new;@output_buffer.safe_append='<!-- This is the home page -->
+<div data-role="page" id="homePage">
+    <div data-role="header">
+        <h1>FightDex</h1>
+    </div>
+    <div data-role="content">
+';         |game| = @games.find(@gameSelected) 
+@output_buffer.safe_append='            <h2>';@output_buffer.append=( game.name );@output_buffer.safe_append='</h2>
+            <p>';@output_buffer.append=( game.publisher );@output_buffer.safe_append='</p>
+            <a href="#characterPage">
+                <img id="gameImage" src="';@output_buffer.append=( game.url );@output_buffer.safe_append='">
+            </a>
+';         end 
+@output_buffer.safe_append='    </div>
+    <div data-role="footer">
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#homePage" data-icon="arrow-l">Previous Game</a></li>
+                <li><a href="#homePage" data-icon="arrow-r">Next Game</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- This is the character select page -->
+<div data-role="page" id="characterPage">
+    <div data-role="header">
+        <h1>FightDex</h1>
+    </div>
+    <div data-role="content">
+        <form>
+          <input type="text" data-type="search" id="filterable-input">
+        </form>    
+        <ul data-role="listview" data-inset="true" data-filter="true" data-input="#filterable-input">
+            <li><a href="#">Apple</a></li>
+            <li><a href="#">Banana</a></li>
+            <li><a href="#">Cherry</a></li>
+            <li><a href="#">Cranberry</a></li>
+            <li><a href="#">Grape</a></li>
+            <li><a href="#">Orange</a></li>
+        </ul>    
+    </div>
+    <div data-role="footer">
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#homePage" data-icon="arrow-l">Back</a></li>
+                <li><a href="#homePage" data-icon="home">Home</a></li>
+                <li><a href="#" data-icon="alert">Hadouken</a></li>
+            </ul>
+        </div>
+    </div>
+</div>';@output_buffer.to_s
+          ensure
+            @virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+
+Backtrace: /usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/template.rb:299:in `module_eval'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/template.rb:299:in `compile'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/template.rb:248:in `block in compile!'
+<internal:prelude>:10:in `synchronize'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/template.rb:236:in `compile!'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/template.rb:142:in `block in render'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/notifications.rb:161:in `instrument'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/template.rb:141:in `render'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:49:in `block (2 levels) in render_template'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `block in instrument'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `instrument'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:48:in `block in render_template'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:56:in `render_with_layout'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:17:in `render'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:42:in `render_template'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:23:in `render'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:127:in `_render_template'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/streaming.rb:219:in `_render_template'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:120:in `render_to_body'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:97:in `render'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:16:in `render'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+/opt/rh/ruby193/root/usr/share/ruby/benchmark.rb:295:in `realtime'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `ms'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:189:in `process_action'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:10:in `process_action'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:403:in `_run__4547321619205447533__process_action__callbacks'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:80:in `run_callbacks'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/rescue.rb:29:in `process_action'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `block in instrument'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `instrument'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:136:in `process'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:44:in `process'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal.rb:195:in `dispatch'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal.rb:231:in `block in action'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/routing/route_set.rb:80:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/routing/route_set.rb:48:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/journey/router.rb:71:in `block in call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/journey/router.rb:59:in `each'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/journey/router.rb:59:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/routing/route_set.rb:655:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/rack-1.5.2/lib/rack/etag.rb:23:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/rack-1.5.2/lib/rack/conditionalget.rb:25:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/rack-1.5.2/lib/rack/head.rb:11:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/flash.rb:241:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/rack-1.5.2/lib/rack/session/abstract/id.rb:225:in `context'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/rack-1.5.2/lib/rack/session/abstract/id.rb:220:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/cookies.rb:486:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activerecord-4.0.0/lib/active_record/query_cache.rb:36:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activerecord-4.0.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activerecord-4.0.0/lib/active_record/migration.rb:369:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:373:in `_run__4270652709212953102__call__callbacks'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:80:in `run_callbacks'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/reloader.rb:64:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/railties-4.0.0/lib/rails/rack/logger.rb:38:in `call_app'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/railties-4.0.0/lib/rails/rack/logger.rb:21:in `block in call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/tagged_logging.rb:67:in `block in tagged'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/tagged_logging.rb:25:in `tagged'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/tagged_logging.rb:67:in `tagged'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/railties-4.0.0/lib/rails/rack/logger.rb:21:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/rack-1.5.2/lib/rack/methodoverride.rb:21:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/rack-1.5.2/lib/rack/runtime.rb:17:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/static.rb:64:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/railties-4.0.0/lib/rails/engine.rb:511:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/railties-4.0.0/lib/rails/application.rb:97:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/rack-1.5.2/lib/rack/content_length.rb:14:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/rack-1.5.2/lib/rack/handler/webrick.rb:60:in `service'
+/opt/rh/ruby193/root/usr/share/ruby/webrick/httpserver.rb:138:in `service'
+/opt/rh/ruby193/root/usr/share/ruby/webrick/httpserver.rb:94:in `run'
+/opt/rh/ruby193/root/usr/share/ruby/webrick/server.rb:191:in `block in start_thread'
+  Rendered games/index.html.erb within layouts/application (96.8ms)
+Completed 500 Internal Server Error in 414ms
+
+ActionView::Template::Error (/var/lib/stickshift/532dc46be0b8cdb4eb00024f/app-root/data/809197/app/views/games/index.html.erb:7: syntax error, unexpected '|', expecting keyword_end
+';         |game| = @games.find(@gameSelected) 
+            ^
+/var/lib/stickshift/532dc46be0b8cdb4eb00024f/app-root/data/809197/app/views/games/index.html.erb:53: syntax error, unexpected keyword_ensure, expecting $end):
+    4:         <h1>FightDex</h1>
+    5:     </div>
+    6:     <div data-role="content">
+    7:         <% |game| = @games.find(@gameSelected) %>
+    8:             <h2><%= game.name %></h2>
+    9:             <p><%= game.publisher %></p>
+   10:             <a href="#characterPage">
+  actionpack (4.0.0) lib/action_view/template.rb:299:in `module_eval'
+  actionpack (4.0.0) lib/action_view/template.rb:299:in `compile'
+  actionpack (4.0.0) lib/action_view/template.rb:248:in `block in compile!'
+  <internal:prelude>:10:in `synchronize'
+  actionpack (4.0.0) lib/action_view/template.rb:236:in `compile!'
+  actionpack (4.0.0) lib/action_view/template.rb:142:in `block in render'
+  activesupport (4.0.0) lib/active_support/notifications.rb:161:in `instrument'
+  actionpack (4.0.0) lib/action_view/template.rb:141:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:49:in `block (2 levels) in render_template'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:48:in `block in render_template'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:56:in `render_with_layout'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:17:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionpack (4.0.0) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:127:in `_render_template'
+  actionpack (4.0.0) lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  actionpack (4.0.0) lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:97:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.0.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /opt/rh/ruby193/root/usr/share/ruby/benchmark.rb:295:in `realtime'
+  activesupport (4.0.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.0.0) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.0.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.0.0) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.0) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:403:in `_run__4547321619205447533__process_action__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.0) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.0) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:655:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.0) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:373:in `_run__4270652709212953102__call__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /opt/rh/ruby193/root/usr/share/ruby/webrick/httpserver.rb:138:in `service'
+  /opt/rh/ruby193/root/usr/share/ruby/webrick/httpserver.rb:94:in `run'
+  /opt/rh/ruby193/root/usr/share/ruby/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.9ms)
+  Rendered /usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.7ms)
+  Rendered /usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (154.1ms)
+
+
+Started GET "/" for 127.5.6.1 at 2014-04-03 16:01:04 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GamesController#index as HTML
+ERROR: compiling _app_views_games_index_html_erb___3921596359519228245_16774580 RAISED /var/lib/stickshift/532dc46be0b8cdb4eb00024f/app-root/data/809197/app/views/games/index.html.erb:53: syntax error, unexpected keyword_ensure, expecting $end
+Function body:           def _app_views_games_index_html_erb___3921596359519228245_16774580(local_assigns, output_buffer)
+            _old_virtual_path, @virtual_path = @virtual_path, "games/index";_old_output_buffer = @output_buffer;;@output_buffer = output_buffer || ActionView::OutputBuffer.new;@output_buffer.safe_append='<!-- This is the home page -->
+<div data-role="page" id="homePage">
+    <div data-role="header">
+        <h1>FightDex</h1>
+    </div>
+    <div data-role="content">
+';         game = @games.find(@gameSelected) 
+@output_buffer.safe_append='            <h2>';@output_buffer.append=( game.name );@output_buffer.safe_append='</h2>
+            <p>';@output_buffer.append=( game.publisher );@output_buffer.safe_append='</p>
+            <a href="#characterPage">
+                <img id="gameImage" src="';@output_buffer.append=( game.url );@output_buffer.safe_append='">
+            </a>
+';         end 
+@output_buffer.safe_append='    </div>
+    <div data-role="footer">
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#homePage" data-icon="arrow-l">Previous Game</a></li>
+                <li><a href="#homePage" data-icon="arrow-r">Next Game</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- This is the character select page -->
+<div data-role="page" id="characterPage">
+    <div data-role="header">
+        <h1>FightDex</h1>
+    </div>
+    <div data-role="content">
+        <form>
+          <input type="text" data-type="search" id="filterable-input">
+        </form>    
+        <ul data-role="listview" data-inset="true" data-filter="true" data-input="#filterable-input">
+            <li><a href="#">Apple</a></li>
+            <li><a href="#">Banana</a></li>
+            <li><a href="#">Cherry</a></li>
+            <li><a href="#">Cranberry</a></li>
+            <li><a href="#">Grape</a></li>
+            <li><a href="#">Orange</a></li>
+        </ul>    
+    </div>
+    <div data-role="footer">
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#homePage" data-icon="arrow-l">Back</a></li>
+                <li><a href="#homePage" data-icon="home">Home</a></li>
+                <li><a href="#" data-icon="alert">Hadouken</a></li>
+            </ul>
+        </div>
+    </div>
+</div>';@output_buffer.to_s
+          ensure
+            @virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+
+Backtrace: /usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/template.rb:299:in `module_eval'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/template.rb:299:in `compile'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/template.rb:248:in `block in compile!'
+<internal:prelude>:10:in `synchronize'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/template.rb:236:in `compile!'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/template.rb:142:in `block in render'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/notifications.rb:161:in `instrument'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/template.rb:141:in `render'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:49:in `block (2 levels) in render_template'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `block in instrument'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `instrument'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:48:in `block in render_template'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:56:in `render_with_layout'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:17:in `render'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:42:in `render_template'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:23:in `render'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:127:in `_render_template'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/streaming.rb:219:in `_render_template'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:120:in `render_to_body'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:97:in `render'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:16:in `render'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+/opt/rh/ruby193/root/usr/share/ruby/benchmark.rb:295:in `realtime'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `ms'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:189:in `process_action'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:10:in `process_action'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:403:in `_run__1364884894988591631__process_action__callbacks'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:80:in `run_callbacks'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/rescue.rb:29:in `process_action'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `block in instrument'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `instrument'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:136:in `process'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:44:in `process'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal.rb:195:in `dispatch'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal.rb:231:in `block in action'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/routing/route_set.rb:80:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/routing/route_set.rb:48:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/journey/router.rb:71:in `block in call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/journey/router.rb:59:in `each'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/journey/router.rb:59:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/routing/route_set.rb:655:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/rack-1.5.2/lib/rack/etag.rb:23:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/rack-1.5.2/lib/rack/conditionalget.rb:25:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/rack-1.5.2/lib/rack/head.rb:11:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/flash.rb:241:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/rack-1.5.2/lib/rack/session/abstract/id.rb:225:in `context'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/rack-1.5.2/lib/rack/session/abstract/id.rb:220:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/cookies.rb:486:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activerecord-4.0.0/lib/active_record/query_cache.rb:36:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activerecord-4.0.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activerecord-4.0.0/lib/active_record/migration.rb:369:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:373:in `_run__1728651989691960664__call__callbacks'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:80:in `run_callbacks'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/reloader.rb:64:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/railties-4.0.0/lib/rails/rack/logger.rb:38:in `call_app'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/railties-4.0.0/lib/rails/rack/logger.rb:21:in `block in call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/tagged_logging.rb:67:in `block in tagged'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/tagged_logging.rb:25:in `tagged'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/tagged_logging.rb:67:in `tagged'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/railties-4.0.0/lib/rails/rack/logger.rb:21:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/rack-1.5.2/lib/rack/methodoverride.rb:21:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/rack-1.5.2/lib/rack/runtime.rb:17:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/static.rb:64:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/railties-4.0.0/lib/rails/engine.rb:511:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/railties-4.0.0/lib/rails/application.rb:97:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/rack-1.5.2/lib/rack/content_length.rb:14:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/rack-1.5.2/lib/rack/handler/webrick.rb:60:in `service'
+/opt/rh/ruby193/root/usr/share/ruby/webrick/httpserver.rb:138:in `service'
+/opt/rh/ruby193/root/usr/share/ruby/webrick/httpserver.rb:94:in `run'
+/opt/rh/ruby193/root/usr/share/ruby/webrick/server.rb:191:in `block in start_thread'
+  Rendered games/index.html.erb within layouts/application (370.8ms)
+Completed 500 Internal Server Error in 743ms
+
+ActionView::Template::Error (/var/lib/stickshift/532dc46be0b8cdb4eb00024f/app-root/data/809197/app/views/games/index.html.erb:53: syntax error, unexpected keyword_ensure, expecting $end):
+    50:         </div>
+    51:     </div>
+    52: </div>
+  actionpack (4.0.0) lib/action_view/template.rb:299:in `module_eval'
+  actionpack (4.0.0) lib/action_view/template.rb:299:in `compile'
+  actionpack (4.0.0) lib/action_view/template.rb:248:in `block in compile!'
+  <internal:prelude>:10:in `synchronize'
+  actionpack (4.0.0) lib/action_view/template.rb:236:in `compile!'
+  actionpack (4.0.0) lib/action_view/template.rb:142:in `block in render'
+  activesupport (4.0.0) lib/active_support/notifications.rb:161:in `instrument'
+  actionpack (4.0.0) lib/action_view/template.rb:141:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:49:in `block (2 levels) in render_template'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:48:in `block in render_template'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:56:in `render_with_layout'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:17:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionpack (4.0.0) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:127:in `_render_template'
+  actionpack (4.0.0) lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  actionpack (4.0.0) lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:97:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.0.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /opt/rh/ruby193/root/usr/share/ruby/benchmark.rb:295:in `realtime'
+  activesupport (4.0.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.0.0) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.0.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.0.0) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.0) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:403:in `_run__1364884894988591631__process_action__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.0) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.0) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:655:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.0) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:373:in `_run__1728651989691960664__call__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /opt/rh/ruby193/root/usr/share/ruby/webrick/httpserver.rb:138:in `service'
+  /opt/rh/ruby193/root/usr/share/ruby/webrick/httpserver.rb:94:in `run'
+  /opt/rh/ruby193/root/usr/share/ruby/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (14.1ms)
+  Rendered /usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.8ms)
+  Rendered /usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (198.0ms)
+
+
+Started GET "/" for 127.5.6.1 at 2014-04-03 16:03:00 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GamesController#index as HTML
+ERROR: compiling _app_views_games_index_html_erb__997243632372891451_36329520 RAISED /var/lib/stickshift/532dc46be0b8cdb4eb00024f/app-root/data/809197/app/views/games/index.html.erb:53: syntax error, unexpected keyword_ensure, expecting $end
+Function body:           def _app_views_games_index_html_erb__997243632372891451_36329520(local_assigns, output_buffer)
+            _old_virtual_path, @virtual_path = @virtual_path, "games/index";_old_output_buffer = @output_buffer;;@output_buffer = output_buffer || ActionView::OutputBuffer.new;@output_buffer.safe_append='<!-- This is the home page -->
+<div data-role="page" id="homePage">
+    <div data-role="header">
+        <h1>FightDex</h1>
+    </div>
+    <div data-role="content">
+        ';@output_buffer.append=( game = @games.find(@gameSelected) );@output_buffer.safe_append='
+';@output_buffer.safe_append='            <h2>';@output_buffer.append=( game.name );@output_buffer.safe_append='</h2>
+            <p>';@output_buffer.append=( game.publisher );@output_buffer.safe_append='</p>
+            <a href="#characterPage">
+                <img id="gameImage" src="';@output_buffer.append=( game.url );@output_buffer.safe_append='">
+            </a>
+';         end 
+@output_buffer.safe_append='    </div>
+    <div data-role="footer">
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#homePage" data-icon="arrow-l">Previous Game</a></li>
+                <li><a href="#homePage" data-icon="arrow-r">Next Game</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- This is the character select page -->
+<div data-role="page" id="characterPage">
+    <div data-role="header">
+        <h1>FightDex</h1>
+    </div>
+    <div data-role="content">
+        <form>
+          <input type="text" data-type="search" id="filterable-input">
+        </form>    
+        <ul data-role="listview" data-inset="true" data-filter="true" data-input="#filterable-input">
+            <li><a href="#">Apple</a></li>
+            <li><a href="#">Banana</a></li>
+            <li><a href="#">Cherry</a></li>
+            <li><a href="#">Cranberry</a></li>
+            <li><a href="#">Grape</a></li>
+            <li><a href="#">Orange</a></li>
+        </ul>    
+    </div>
+    <div data-role="footer">
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#homePage" data-icon="arrow-l">Back</a></li>
+                <li><a href="#homePage" data-icon="home">Home</a></li>
+                <li><a href="#" data-icon="alert">Hadouken</a></li>
+            </ul>
+        </div>
+    </div>
+</div>';@output_buffer.to_s
+          ensure
+            @virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+
+Backtrace: /usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/template.rb:299:in `module_eval'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/template.rb:299:in `compile'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/template.rb:248:in `block in compile!'
+<internal:prelude>:10:in `synchronize'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/template.rb:236:in `compile!'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/template.rb:142:in `block in render'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/notifications.rb:161:in `instrument'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/template.rb:141:in `render'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:49:in `block (2 levels) in render_template'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `block in instrument'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `instrument'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:48:in `block in render_template'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:56:in `render_with_layout'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:17:in `render'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:42:in `render_template'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:23:in `render'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:127:in `_render_template'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/streaming.rb:219:in `_render_template'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:120:in `render_to_body'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:97:in `render'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:16:in `render'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+/opt/rh/ruby193/root/usr/share/ruby/benchmark.rb:295:in `realtime'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `ms'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:189:in `process_action'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:10:in `process_action'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:403:in `_run__3601493064091592349__process_action__callbacks'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:80:in `run_callbacks'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/rescue.rb:29:in `process_action'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `block in instrument'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `instrument'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:136:in `process'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:44:in `process'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal.rb:195:in `dispatch'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal.rb:231:in `block in action'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/routing/route_set.rb:80:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/routing/route_set.rb:48:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/journey/router.rb:71:in `block in call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/journey/router.rb:59:in `each'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/journey/router.rb:59:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/routing/route_set.rb:655:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/rack-1.5.2/lib/rack/etag.rb:23:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/rack-1.5.2/lib/rack/conditionalget.rb:25:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/rack-1.5.2/lib/rack/head.rb:11:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/flash.rb:241:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/rack-1.5.2/lib/rack/session/abstract/id.rb:225:in `context'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/rack-1.5.2/lib/rack/session/abstract/id.rb:220:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/cookies.rb:486:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activerecord-4.0.0/lib/active_record/query_cache.rb:36:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activerecord-4.0.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activerecord-4.0.0/lib/active_record/migration.rb:369:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:373:in `_run__132806420671836435__call__callbacks'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:80:in `run_callbacks'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/reloader.rb:64:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/railties-4.0.0/lib/rails/rack/logger.rb:38:in `call_app'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/railties-4.0.0/lib/rails/rack/logger.rb:21:in `block in call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/tagged_logging.rb:67:in `block in tagged'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/tagged_logging.rb:25:in `tagged'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/tagged_logging.rb:67:in `tagged'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/railties-4.0.0/lib/rails/rack/logger.rb:21:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/rack-1.5.2/lib/rack/methodoverride.rb:21:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/rack-1.5.2/lib/rack/runtime.rb:17:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/static.rb:64:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/railties-4.0.0/lib/rails/engine.rb:511:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/railties-4.0.0/lib/rails/application.rb:97:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/rack-1.5.2/lib/rack/content_length.rb:14:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/rack-1.5.2/lib/rack/handler/webrick.rb:60:in `service'
+/opt/rh/ruby193/root/usr/share/ruby/webrick/httpserver.rb:138:in `service'
+/opt/rh/ruby193/root/usr/share/ruby/webrick/httpserver.rb:94:in `run'
+/opt/rh/ruby193/root/usr/share/ruby/webrick/server.rb:191:in `block in start_thread'
+  Rendered games/index.html.erb within layouts/application (138.4ms)
+Completed 500 Internal Server Error in 401ms
+
+ActionView::Template::Error (/var/lib/stickshift/532dc46be0b8cdb4eb00024f/app-root/data/809197/app/views/games/index.html.erb:53: syntax error, unexpected keyword_ensure, expecting $end):
+    50:         </div>
+    51:     </div>
+    52: </div>
+  actionpack (4.0.0) lib/action_view/template.rb:299:in `module_eval'
+  actionpack (4.0.0) lib/action_view/template.rb:299:in `compile'
+  actionpack (4.0.0) lib/action_view/template.rb:248:in `block in compile!'
+  <internal:prelude>:10:in `synchronize'
+  actionpack (4.0.0) lib/action_view/template.rb:236:in `compile!'
+  actionpack (4.0.0) lib/action_view/template.rb:142:in `block in render'
+  activesupport (4.0.0) lib/active_support/notifications.rb:161:in `instrument'
+  actionpack (4.0.0) lib/action_view/template.rb:141:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:49:in `block (2 levels) in render_template'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:48:in `block in render_template'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:56:in `render_with_layout'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:17:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionpack (4.0.0) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:127:in `_render_template'
+  actionpack (4.0.0) lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  actionpack (4.0.0) lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:97:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.0.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /opt/rh/ruby193/root/usr/share/ruby/benchmark.rb:295:in `realtime'
+  activesupport (4.0.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.0.0) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.0.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.0.0) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.0) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:403:in `_run__3601493064091592349__process_action__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.0) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.0) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:655:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.0) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:373:in `_run__132806420671836435__call__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /opt/rh/ruby193/root/usr/share/ruby/webrick/httpserver.rb:138:in `service'
+  /opt/rh/ruby193/root/usr/share/ruby/webrick/httpserver.rb:94:in `run'
+  /opt/rh/ruby193/root/usr/share/ruby/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (7.6ms)
+  Rendered /usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered /usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (80.7ms)
+
+
+Started GET "/" for 127.5.6.1 at 2014-04-03 16:03:17 -0400
+Processing by GamesController#index as HTML
+ERROR: compiling _app_views_games_index_html_erb__997243632372891451_36329520 RAISED /var/lib/stickshift/532dc46be0b8cdb4eb00024f/app-root/data/809197/app/views/games/index.html.erb:53: syntax error, unexpected keyword_ensure, expecting $end
+Function body:           def _app_views_games_index_html_erb__997243632372891451_36329520(local_assigns, output_buffer)
+            _old_virtual_path, @virtual_path = @virtual_path, "games/index";_old_output_buffer = @output_buffer;;@output_buffer = output_buffer || ActionView::OutputBuffer.new;@output_buffer.safe_append='<!-- This is the home page -->
+<div data-role="page" id="homePage">
+    <div data-role="header">
+        <h1>FightDex</h1>
+    </div>
+    <div data-role="content">
+        ';@output_buffer.append=( game = @games.find(@gameSelected) );@output_buffer.safe_append='
+';@output_buffer.safe_append='            <h2>';@output_buffer.append=( game.name );@output_buffer.safe_append='</h2>
+            <p>';@output_buffer.append=( game.publisher );@output_buffer.safe_append='</p>
+            <a href="#characterPage">
+                <img id="gameImage" src="';@output_buffer.append=( game.url );@output_buffer.safe_append='">
+            </a>
+';         end 
+@output_buffer.safe_append='    </div>
+    <div data-role="footer">
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#homePage" data-icon="arrow-l">Previous Game</a></li>
+                <li><a href="#homePage" data-icon="arrow-r">Next Game</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- This is the character select page -->
+<div data-role="page" id="characterPage">
+    <div data-role="header">
+        <h1>FightDex</h1>
+    </div>
+    <div data-role="content">
+        <form>
+          <input type="text" data-type="search" id="filterable-input">
+        </form>    
+        <ul data-role="listview" data-inset="true" data-filter="true" data-input="#filterable-input">
+            <li><a href="#">Apple</a></li>
+            <li><a href="#">Banana</a></li>
+            <li><a href="#">Cherry</a></li>
+            <li><a href="#">Cranberry</a></li>
+            <li><a href="#">Grape</a></li>
+            <li><a href="#">Orange</a></li>
+        </ul>    
+    </div>
+    <div data-role="footer">
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#homePage" data-icon="arrow-l">Back</a></li>
+                <li><a href="#homePage" data-icon="home">Home</a></li>
+                <li><a href="#" data-icon="alert">Hadouken</a></li>
+            </ul>
+        </div>
+    </div>
+</div>';@output_buffer.to_s
+          ensure
+            @virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+
+Backtrace: /usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/template.rb:299:in `module_eval'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/template.rb:299:in `compile'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/template.rb:248:in `block in compile!'
+<internal:prelude>:10:in `synchronize'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/template.rb:236:in `compile!'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/template.rb:142:in `block in render'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/notifications.rb:161:in `instrument'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/template.rb:141:in `render'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:49:in `block (2 levels) in render_template'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `block in instrument'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `instrument'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:48:in `block in render_template'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:56:in `render_with_layout'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:17:in `render'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:42:in `render_template'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:23:in `render'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:127:in `_render_template'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/streaming.rb:219:in `_render_template'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:120:in `render_to_body'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:97:in `render'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:16:in `render'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+/opt/rh/ruby193/root/usr/share/ruby/benchmark.rb:295:in `realtime'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `ms'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:189:in `process_action'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:10:in `process_action'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:403:in `_run__3601493064091592349__process_action__callbacks'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:80:in `run_callbacks'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/rescue.rb:29:in `process_action'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `block in instrument'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `instrument'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:136:in `process'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:44:in `process'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal.rb:195:in `dispatch'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_controller/metal.rb:231:in `block in action'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/routing/route_set.rb:80:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/routing/route_set.rb:48:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/journey/router.rb:71:in `block in call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/journey/router.rb:59:in `each'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/journey/router.rb:59:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/routing/route_set.rb:655:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/rack-1.5.2/lib/rack/etag.rb:23:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/rack-1.5.2/lib/rack/conditionalget.rb:25:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/rack-1.5.2/lib/rack/head.rb:11:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/flash.rb:241:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/rack-1.5.2/lib/rack/session/abstract/id.rb:225:in `context'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/rack-1.5.2/lib/rack/session/abstract/id.rb:220:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/cookies.rb:486:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activerecord-4.0.0/lib/active_record/query_cache.rb:36:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activerecord-4.0.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activerecord-4.0.0/lib/active_record/migration.rb:369:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:373:in `_run__132806420671836435__call__callbacks'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:80:in `run_callbacks'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/reloader.rb:64:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/railties-4.0.0/lib/rails/rack/logger.rb:38:in `call_app'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/railties-4.0.0/lib/rails/rack/logger.rb:21:in `block in call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/tagged_logging.rb:67:in `block in tagged'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/tagged_logging.rb:25:in `tagged'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/tagged_logging.rb:67:in `tagged'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/railties-4.0.0/lib/rails/rack/logger.rb:21:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/rack-1.5.2/lib/rack/methodoverride.rb:21:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/rack-1.5.2/lib/rack/runtime.rb:17:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/activesupport-4.0.0/lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/static.rb:64:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/railties-4.0.0/lib/rails/engine.rb:511:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/railties-4.0.0/lib/rails/application.rb:97:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/rack-1.5.2/lib/rack/content_length.rb:14:in `call'
+/usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/rack-1.5.2/lib/rack/handler/webrick.rb:60:in `service'
+/opt/rh/ruby193/root/usr/share/ruby/webrick/httpserver.rb:138:in `service'
+/opt/rh/ruby193/root/usr/share/ruby/webrick/httpserver.rb:94:in `run'
+/opt/rh/ruby193/root/usr/share/ruby/webrick/server.rb:191:in `block in start_thread'
+  Rendered games/index.html.erb within layouts/application (6.3ms)
+Completed 500 Internal Server Error in 14ms
+
+ActionView::Template::Error (/var/lib/stickshift/532dc46be0b8cdb4eb00024f/app-root/data/809197/app/views/games/index.html.erb:53: syntax error, unexpected keyword_ensure, expecting $end):
+    50:         </div>
+    51:     </div>
+    52: </div>
+  actionpack (4.0.0) lib/action_view/template.rb:299:in `module_eval'
+  actionpack (4.0.0) lib/action_view/template.rb:299:in `compile'
+  actionpack (4.0.0) lib/action_view/template.rb:248:in `block in compile!'
+  <internal:prelude>:10:in `synchronize'
+  actionpack (4.0.0) lib/action_view/template.rb:236:in `compile!'
+  actionpack (4.0.0) lib/action_view/template.rb:142:in `block in render'
+  activesupport (4.0.0) lib/active_support/notifications.rb:161:in `instrument'
+  actionpack (4.0.0) lib/action_view/template.rb:141:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:49:in `block (2 levels) in render_template'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:48:in `block in render_template'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:56:in `render_with_layout'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:17:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionpack (4.0.0) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:127:in `_render_template'
+  actionpack (4.0.0) lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  actionpack (4.0.0) lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:97:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.0.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /opt/rh/ruby193/root/usr/share/ruby/benchmark.rb:295:in `realtime'
+  activesupport (4.0.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.0.0) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.0.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.0.0) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.0) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:403:in `_run__3601493064091592349__process_action__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.0) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.0) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:655:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.0) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:373:in `_run__132806420671836435__call__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /opt/rh/ruby193/root/usr/share/ruby/webrick/httpserver.rb:138:in `service'
+  /opt/rh/ruby193/root/usr/share/ruby/webrick/httpserver.rb:94:in `run'
+  /opt/rh/ruby193/root/usr/share/ruby/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (8.7ms)
+  Rendered /usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.0ms)
+  Rendered /usr/libexec/openshift/cartridges/c9-0.1/root/lib/ruby/gems/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (135.2ms)
